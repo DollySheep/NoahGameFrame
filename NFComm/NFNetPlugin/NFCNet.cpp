@@ -221,14 +221,12 @@ bool NFCNet::Final()
         listener = NULL;
     }
 
-    if (!mbServer)
-    {
-        if (base)
-        {
-            event_base_free(base);
-            base = NULL;
-        }
-    }
+	// 不区分服务器和客户端
+	if (base)
+	{
+	    event_base_free(base);
+	    base = NULL;
+	}
 
     return true;
 }
